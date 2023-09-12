@@ -74,6 +74,9 @@ function App() {
           chart: {
             events: {
               dataPointSelection: (event, chartContext, config) => {
+                //매개변수에 event와 chartContext를 받아오지 않을시 config의 dataPointInde를 못받아 오는 문제 발생으로
+                //부득이하게 쓰지 않는것으로 보이는 매개변수를 지우지 않았습니다.
+                console.log(event, chartContext + "배포용 로그 출력");
                 handleFilter(chartData.id[config.dataPointIndex]);
               },
             },
