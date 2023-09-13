@@ -1,4 +1,4 @@
-import { HttpClient } from "../apis/httpClient";
+import { HttpClient } from "../apis";
 import { ChartData } from "../types/chart.type";
 
 export class ChartService {
