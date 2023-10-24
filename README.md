@@ -1,4 +1,4 @@
-# Search-Clinicaltrial
+# LocalData Visualizer
 
 ## 프로젝트 소개
 
@@ -6,7 +6,7 @@
 
 ## 데모 영상
 
-[배포 링크](chart-practice-inky.vercel.app, "배포 링크")
+[배포 링크](https://chart-practice-inky.vercel.app/)
 
 ## 개발 환경
 
