@@ -1,16 +1,17 @@
-# Search-Clinicaltrial
+# LocalData Visualizer
 
-## 프로젝트 소개
+## ❤️ 프로젝트 내용
 
 - 지역별 데이터를 Chart로 보여주는 프로젝트입니다.
 
-## 데모 영상
+## 🌱 배포 및 제작 기간
 
-[배포 링크](chart-practice-inky.vercel.app, "배포 링크")
+- 배포 링크 : [LocalData Visualizer](https://chart-practice-inky.vercel.app/)
+- 제작 기간 : 2023.09.10 ~ 2023.09.13 (3일)
 
-## 개발 환경
+## 🏔️ 개발 환경
 
-### Developement
+### Development
 
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"/> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"/>
 
@@ -18,7 +19,15 @@
 
 <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
 
-## 디렉토리 구조
+## 🚀 실행 방법
+
+```
+$ git clone https://github.com/YeongseoYoon/chart-practice.git
+$ npm install
+$ npm run dev
+```
+
+## 📂 디렉토리 구조
 
 ```
 📦src
@@ -70,31 +79,30 @@
 
 - chartData라는 객체를 만들어, 내부에 id, xaxis, area, bar 프로퍼티를 만들고, 배열값을 저장해 쓰도록 했습니다.
 
-```js
-  const chartData = {
-    area: [] as number[],
-    bar: [] as number[],
-    xaxis: [] as string[],
-    id: [] as string[],
-  };
+```ts
+const chartData = {
+  area: [] as number[],
+  bar: [] as number[],
+  xaxis: [] as string[],
+  id: [] as string[],
+};
 
-  Object.entries(data || {}).forEach(([timestamp, item]) => {
-    chartData.xaxis.push(timestamp);
-    chartData.area.push(item.value_area);
-    chartData.bar.push(item.value_bar);
-    chartData.id.push(item.id);
-  });
-
+Object.entries(data || {}).forEach(([timestamp, item]) => {
+  chartData.xaxis.push(timestamp);
+  chartData.area.push(item.value_area);
+  chartData.bar.push(item.value_bar);
+  chartData.id.push(item.id);
+});
 ```
 
 ### Assignment 2. 호버 기능 구현
 
     - 특정 데이터 구역에 마우스 호버시 `id, value_area, value_bar` 데이터를 툴팁 형태로 제공해주세요
 
-> 🧐 **고민했던 점** <br>
+> 🧐 **고민했던 점** <br/>
 > 제공받은 데이터는 다음과 같았습니다.
 >
-> ```
+> ```ts
 > response": {
 >    "2023-02-01 14:32:00": {
 >      "id": "성북구",
@@ -123,7 +131,7 @@
 
 - apex charts에서 제공하는 tooltip option을 이용했습니다.
 
-```js
+```ts
  tooltip: {
    shared: true,
    intersect: false,
@@ -145,7 +153,7 @@
 - 필터링 기능을 위해 apex charts의 events와 colors option을 사용했습니다.
 - 상단의 지역별 버튼을 클릭하거나, 차트의 bar를 클릭하면 id값이 filteredId에 들어가고, filteredId와 bar 차트의 내용이 같다면 colors option을 이용해 하이라이트하도록 했습니다.
 
-```js
+```ts
   const [filteredId, setFilteredId] = useState("");
   const handleFilter = (id: string) => {
     setFilteredId(id);
@@ -207,7 +215,7 @@
 
 - 횡단 관심사의 분리를 위해 httpClient와 ChartService 단을 분리하고, ChartService에 httpClient 인스턴스를 주입해주는 방식을 선택했습니다.
 
-```js
+```ts
 //chart.service.ts
 import { HttpClient } from "../apis";
 import { ChartData } from "../types/chart.type";
@@ -225,7 +233,7 @@ export class ChartService {
 }
 ```
 
-```js
+```ts
 //httpClient.ts
 export class HttpClient {
   constructor(private baseURL: string) {}
@@ -243,5 +251,4 @@ export class HttpClient {
     }
   };
 }
-
 ```
