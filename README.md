@@ -6,8 +6,8 @@
 
 ## 🌱 배포 및 제작 기간
 
-- 배포 링크 : [LocalData Visualizer](https://chart-practice-inky.vercel.app/)
-- 제작 기간 : 2023.09.10 ~ 2023.09.13 (3일)
+- 배포 링크 : [LocalData Visualizer](https://chart-practice-inky.vercel.app)
+- 제작 기간 : 2023.09.10 ~ 2023.09.12 (3일)
 
 ## 🏔️ 개발 환경
 
